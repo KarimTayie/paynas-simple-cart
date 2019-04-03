@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { ProductService } from '../services/product.service';
 
@@ -8,6 +9,7 @@ import { ProductService } from '../services/product.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  isCollapsed = true;
 
   constructor(
     public productServie: ProductService

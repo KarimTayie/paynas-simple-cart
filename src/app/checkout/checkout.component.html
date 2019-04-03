@@ -1,3 +1,26 @@
-<p>
-  checkout works!
-</p>
+<div class="row">
+  <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Description</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prod of selectedProducts">
+            <td>{{ prod.name }}</td>
+            <td>{{ prod.count }}</td>
+            <td>{{ prod.price }} EGP</td>
+          </tr>
+          <tr>
+            <td colspan="2">Total</td>
+            <td>{{ productService.totalPrice }} EGP</td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+
+  <button class="btn btn-success mx-auto" (click)="clearCart()">Checkout</button>
+</div>

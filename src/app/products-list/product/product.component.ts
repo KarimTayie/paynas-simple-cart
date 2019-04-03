@@ -19,10 +19,11 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
-  addToCart(pCount: string, price: number) {
-    const productObject = {
-      productCount: parseInt(pCount, 10),
-      productPrice: price
+  addToCart(pCount: string, price: number, name: string) {
+    const productObject: Product = {
+      count: parseInt(pCount, 10),
+      price,
+      name
     };
 
     this.productService.addToCart(productObject);

@@ -1,9 +1,9 @@
 <div class="card mb-4 text-center" style="min-width: 18rem; max-width: 18rem;">
-  <img class="card-img-top" src="{{ product.img }}" alt="Product Image">
+  <img class="card-img-top" src="{{ product.image }}" alt="Product Image">
   <div class="card-body">
-    <h5 class="card-title">{{ product.productName }}</h5>
+    <h5 class="card-title">{{ product.name}}</h5>
     <p class="card-text">{{ product.price }}<span> EGP</span></p>
     <input type="number" value="0" placeholder="0" class="mt-3 mx-auto form-control" style="width: 60px;" #pCount>
-    <button class="btn btn-primary mt-3" (click)="addToCart(pCount.value, product.price)">Add To Cart</button>
+    <button class="btn btn-primary mt-3" (click)="addToCart(pCount.value, product.price, product.name)">Add To Cart</button>
   </div>
 </div>

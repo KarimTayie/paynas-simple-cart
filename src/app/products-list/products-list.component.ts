@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ProductService } from '../services/product.service';
 import { Product } from './product.model';
 
 @Component({
@@ -8,42 +9,20 @@ import { Product } from './product.model';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  productsList: Product[] = [
-    {
-      img: 'assets/492408_main.jpg',
-      productName: 'Mobile-1',
-      price: 3
-    },
-    {
-      img: 'assets/492408_main.jpg',
-      productName: 'Mobile-2',
-      price: 5
-    },
-    {
-      img: 'assets/492408_main.jpg',
-      productName: 'Mobile-3',
-      price: 7
-    },
-    {
-      img: 'assets/492408_main.jpg',
-      productName: 'Mobile-1',
-      price: 3
-    },
-    {
-      img: 'assets/492408_main.jpg',
-      productName: 'Mobile-2',
-      price: 5
-    },
-    {
-      img: 'assets/492408_main.jpg',
-      productName: 'Mobile-3',
-      price: 7
-    }
-  ];
+  productsList: Product[];
 
-  constructor() { }
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
+    this.productsList = this.productService.getAllProducts();
+    this.productService.getAllProductsObservable().subscribe(
+      products => {
+        this.productsList = products;
+        this.productService.setAllProducts(products);
+      }
+    );
   }
 
 }
