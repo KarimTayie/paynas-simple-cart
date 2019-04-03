@@ -23,6 +23,21 @@ export class ProductsListComponent implements OnInit {
       img: 'assets/492408_main.jpg',
       productName: 'Mobile-3',
       price: 7
+    },
+    {
+      img: 'assets/492408_main.jpg',
+      productName: 'Mobile-1',
+      price: 3
+    },
+    {
+      img: 'assets/492408_main.jpg',
+      productName: 'Mobile-2',
+      price: 5
+    },
+    {
+      img: 'assets/492408_main.jpg',
+      productName: 'Mobile-3',
+      price: 7
     }
   ];
 
