@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef } from '@angular/core';
 
+import { ProductService } from '../../services/product.service';
 import { Product } from '../product.model';
 
 @Component({
@@ -9,10 +10,23 @@ import { Product } from '../product.model';
 })
 export class ProductComponent implements OnInit {
   @Input() product: Product;
+  @ViewChild('pCount') productCountValue: ElementRef;
 
-  constructor() { }
+  constructor(
+    private productService: ProductService
+  ) { }
 
   ngOnInit() {
+  }
+
+  addToCart(pCount: string, price: number) {
+    const productObject = {
+      productCount: parseInt(pCount, 10),
+      productPrice: price
+    };
+
+    this.productService.addToCart(productObject);
+    this.productCountValue.nativeElement.value = 0;
   }
 
 }
