@@ -19,6 +19,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Passing product count, price, name to product service cart
   addToCart(pCount: string, price: number, name: string) {
     const productObject: Product = {
       count: parseInt(pCount, 10),
@@ -27,6 +28,8 @@ export class ProductComponent implements OnInit {
     };
 
     this.productService.addToCart(productObject);
+
+    // Reseting number input field after clicking add to cart
     this.productCountValue.nativeElement.value = 0;
   }
 
